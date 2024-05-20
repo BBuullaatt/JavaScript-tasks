@@ -7,31 +7,32 @@
   </head>
   <body>
     <script>
+      /* Раздел основной программы */
       let int = 5;
       let attempts = 3;
-      alert(
-        `Загадано число в диапазоне от 0 до 10, попробуйте отгадать его. У Вас ${attempts} попытки.`
-      );
-      attemptsCheck(attempts, int);
+      alert(`Загадано число в диапазоне от 0 до 10, попробуйте отгадать его. У Вас осталось ${attempts} попытки.`);
+     
+      for(; attempts>0; attempts--){
+
+      if(getNumber(int)){
+        break;
+      }
+
+    attemptsCheck(attempts);
+    }
 
       /* Функция проверки попыток и вызова функции проверки числа */
-      function attemptsCheck(attempts, int) {
-        for (; attempts > 0; attempts--) {
-          if (getNumber(int)) {
-            break;
-          } else {
-            if (attempts == 1) {
-              alert(
-                "К сожалению, у Вас закончились попытки. Начните игру с начала."
-              );
+      function attemptsCheck(attempts) {
+
+            if(attempts == 1) {
+
+              alert("К сожалению, у Вас закончились попытки. Начните игру с начала.");
             } else {
-              alert(
-                `У Вас осталось ${attempts - 1} попытки(а). Попробуйте еще раз.`
-              );
+
+              alert( `У Вас осталось ${attempts - 1} попытки(а). Попробуйте еще раз.`);
             }
-          }
         }
-      }
+      
 
       /* Функция проверки числа */
       function getNumber(int) {
