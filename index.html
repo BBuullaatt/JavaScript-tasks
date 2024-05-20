@@ -1,42 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let int = 5;
-        let attempts = 3;
-        alert(`Загадано число в диапазоне от 0 до 10, попробуйте отгадать его. У Вас ${attempts} попытки.`);
-        attemptsCheck(attempts,int);
+      let int = 5;
+      let attempts = 3;
+      alert(
+        `Загадано число в диапазоне от 0 до 10, попробуйте отгадать его. У Вас ${attempts} попытки.`
+      );
+      attemptsCheck(attempts, int);
 
-        function attemptsCheck (attempts,int){
-            let responce;
-            
-            if(attempts > 0){
-                responce = +prompt('Введите число');
-                attempts=attempts-1;
-                getNumber(responce, int,attempts);
+      /* Функция проверки попыток и вызова функции проверки числа */
+      function attemptsCheck(attempts, int) {
+        for (; attempts > 0; attempts--) {
+          if (getNumber(int)) {
+            break;
+          } else {
+            if (attempts == 1) {
+              alert(
+                "К сожалению, у Вас закончились попытки. Начните игру с начала."
+              );
+            } else {
+              alert(
+                `У Вас осталось ${attempts - 1} попытки(а). Попробуйте еще раз.`
+              );
             }
-            else{
-                alert('К сожалению, у Вас закончились попытки. Начните игру с начала.');  
-            }
+          }
         }
+      }
 
-        function getNumber(responce, int, attempts){
-            if(int<responce){
-            alert(`Вы не угадали. Ваше число больше загаданного. У Вас осталось ${attempts} попытки(а). Попробуйте еще раз.`);
-            attemptsCheck(attempts,int);
-        } else if(int>responce){
-            alert(`Вы не угадали. Ваше число меньше загаданного. У Вас осталось ${attempts} попытки(а). Попробуйте еще раз.`);
-            attemptsCheck(attempts,int);
-        } else{
-             alert(`Поздравляем. Вы угадали, было загадано число ${int}`);
+      /* Функция проверки числа */
+      function getNumber(int) {
+        let responce;
+        /* Проверка на корректность введеных данных */
+        do{
+            responce = +prompt("Введите число","1");
+
+        if (isNaN(responce)) {
+
+            alert(`Пожалуйста, введите числовое значение.`);
+
+        } else {
+          
+            if (responce < 0 || responce > 10) {
+            alert(`Пожалуйста, введите значение от 0 или 10.`);
+
+          } else {
+            break;
+          }
+
         }
-    }
+        }while(true)
+
+        /* Проверка числа */
+        if (int < responce) {
+          alert(`Вы не угадали. Ваше число больше загаданного.`);
+          return false;
+        } else if (int > responce) {
+          alert(`Вы не угадали. Ваше число меньше загаданного.`);
+          return false;
+        } else {
+          alert(`Поздравляем. Вы угадали, было загадано число ${int}`);
+          attempts = 0;
+          return true;
+        }
+      }
     </script>
-    
-</body>
+  </body>
 </html>
