@@ -7,43 +7,35 @@
 </head>
 <body>
     <script>
-        let question = +prompt('Было загадано число в диапазоне от 0 до 10. Попробуйте его угадать.');
-        if(question =='0'){
-            alert(`Вы не угадали. Попробуйте еще раз.`);
+        let int = 5;
+        let attempts = 3;
+        alert(`Загадано число в диапазоне от 0 до 10, попробуйте отгадать его. У Вас ${attempts} попытки.`);
+        attemptsCheck(attempts,int);
+
+        function attemptsCheck (attempts,int){
+            let responce;
+            
+            if(attempts > 0){
+                responce = +prompt('Введите число');
+                attempts=attempts-1;
+                getNumber(responce, int,attempts);
+            }
+            else{
+                alert('К сожалению, у Вас закончились попытки. Начните игру с начала.');  
+            }
         }
-        else if (question =='1'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
+
+        function getNumber(responce, int, attempts){
+            if(int<responce){
+            alert(`Вы не угадали. Ваше число больше загаданного. У Вас осталось ${attempts} попытки(а). Попробуйте еще раз.`);
+            attemptsCheck(attempts,int);
+        } else if(int>responce){
+            alert(`Вы не угадали. Ваше число меньше загаданного. У Вас осталось ${attempts} попытки(а). Попробуйте еще раз.`);
+            attemptsCheck(attempts,int);
+        } else{
+             alert(`Поздравляем. Вы угадали, было загадано число ${int}`);
         }
-        else if (question =='2'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
-        }
-        else if (question =='3'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
-        }
-        else if (question =='4'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
-        }
-        else if (question =='5'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
-        }
-        else if (question =='6'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
-        }
-        else if (question =='7'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
-        }
-        else if (question =='8'){
-            alert(`Вы угадали. Было загадано число ${question}.`); 
-        }
-        else if (question =='9'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
-        }
-        else if (question =='10'){
-            alert(`Вы не угадали. Попробуйте еще раз.`); 
-        }
-        else{
-            alert(`Ошибка. Введенное значение не являеться целым числом от 0 до 10. Попробйте еще раз.`);
-        }
+    }
     </script>
     
 </body>
