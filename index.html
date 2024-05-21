@@ -7,103 +7,45 @@
 </head>
 <body>
     <script>
-        let question = +prompt('Введите номер квартиры.',1);
-        /*  Первый подъезд */
-        if(question =='1'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 1 этаже.`);
+        /* Раздел основной программы */
+        let question;
+        do{
+            checkNumber();
+        }while(confirm("Проверим расположеие квартиры еще раз?"))
+
+
+        /* Функция проверки квартиры */
+        function checkNumber(){
+
+        /* Проверка на корректность введеных данных */
+        do{
+            question = +prompt('Введите номер квартиры.',"1");
+
+        if (isNaN(question)) {
+
+            alert(`Пожалуйста, введите числовое значение.`);
+
+        } else {
+          
+            if (question < 1 || question > 30) {
+            alert('В доме только 30 квартир(с 1 до 30). Пожалуйста, введите корретный номер квартиры.');
+
+          } else {
+            break;
+          }
         }
-        else if (question =='2'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 1 этаже.`);  
+    }while(true)
+
+        /* Проверка квартиры */
+        /* alert(`Квартира ${question} находиться в ${Math.ceil(question/10)} подъезде на ${Math.ceil(question/2)} этаже.`);   */ 
+        /* alert(`Квартира ${question} находиться в ${Math.ceil(question/10)} подъезде на ${Math.ceil((question - (Math.floor(question/10)*10))/2)} этаже.`);  */  
+        if(Number.isInteger(question/10)){
+            alert(`Квартира ${question} находиться в ${Math.ceil(question/10)} подъезде на 5 этаже.`);
+        }else{
+            alert(`Квартира ${question} находиться в ${Math.ceil(question/10)} подъезде на ${Math.ceil((question - (Math.floor(question/10)*10))/2)} этаже.`);  
         }
-        else if (question =='3'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 2 этаже.`);  
-        }
-        else if (question =='4'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 2 этаже.`);  
-        }
-        else if (question =='5'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 3 этаже.`);  
-        }
-        else if (question =='6'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 3 этаже.`);  
-        }
-        else if (question =='7'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 4 этаже.`);  
-        }
-        else if (question =='8'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 4 этаже.`);  
-        }
-        else if (question =='9'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 5 этаже.`);  
-        }
-        else if (question =='10'){
-            alert(`Квартира ${question} находиться в 1 подъезде на 5 этаже.`);  
-        }
-        /*  Второй подъезд */
-        else if (question =='11'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 1 этаже.`);  
-        }
-        else if (question =='12'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 1 этаже.`);  
-        }
-        else if (question =='13'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 2 этаже.`);  
-        }
-        else if (question =='14'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 2 этаже.`);  
-        }
-        else if (question =='15'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 3 этаже.`);  
-        }
-        else if (question =='16'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 3 этаже.`);  
-        }
-        else if (question =='17'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 4 этаже.`);  
-        }
-        else if (question =='18'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 4 этаже.`);  
-        }
-        else if (question =='19'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 5 этаже.`);  
-        }
-        else if (question =='20'){
-            alert(`Квартира ${question} находиться в 2 подъезде на 5 этаже.`);  
-        }
-        /*  Третий подъезд */
-        else if (question =='21'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 1 этаже.`);  
-        }
-        else if (question =='22'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 1 этаже.`);  
-        }
-        else if (question =='23'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 2 этаже.`);  
-        }
-        else if (question =='24'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 2 этаже.`);  
-        }
-        else if (question =='25'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 3 этаже.`);  
-        }
-        else if (question =='26'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 3 этаже.`);  
-        }
-        else if (question =='27'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 4 этаже.`);  
-        }
-        else if (question =='28'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 4 этаже.`);  
-        }
-        else if (question =='29'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 5 этаже.`);  
-        }
-        else if (question =='30'){
-            alert(`Квартира ${question} находиться в 3 подъезде на 5 этаже.`);  
-        }
-        else{
-            alert('В доме только 30 квартир. Пожалуйста, введите корретный номер квартиры.');
-        }
+    }
+
     </script>
     
 </body>
