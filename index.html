@@ -4,49 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        /* Раздел основной программы */
-        let question;
-        do{
-            checkNumber();
-        }while(confirm("Проверим расположеие квартиры еще раз?"))
+
+    <div id="app">
+        <div class="list">
+            <div class="item" v-for="i in goods">
+                <h1>{{i.title}}</h1>
+                <h2>{{i.color}}</h2>
+                <h2>{{i.price}}</h2>
+                <button v-on:click="addToBasket" :itemId="i.title">В корзину</button>
+            </div>
+        </div> 
+
+        
+
+        <p class="basket-counter">Товаров в корзине:{{counter}}</p>
+
+        <button v-on:click="show">Корзина</button>
+        <button v-on:click="notshow">Закрыть корзину</button>
+        <button v-on:click="cleanBasket">Очистить корзину</button>
+
+        <div class="basket" v-if="showBasket">
+            <div class="item" v-for="(i,de) in basket">
+                <h1>{{i.title}}</h1>
+                <h2>{{i.color}}</h2>
+                <h2>{{i.price}}</h2>
+                <button v-on:click="deleteItem(de)">Удалить</button>
+            </div>
+        </div>  
+        
+        
 
 
-        /* Функция проверки квартиры */
-        function checkNumber(){
 
-        /* Проверка на корректность введеных данных */
-        do{
-            question = +prompt('Введите номер квартиры.',"1");
-
-        if (isNaN(question)) {
-
-            alert(`Пожалуйста, введите числовое значение.`);
-
-        } else {
-          
-            if (question < 1 || question > 30) {
-            alert('В доме только 30 квартир(с 1 до 30). Пожалуйста, введите корретный номер квартиры.');
-
-          } else {
-            break;
-          }
-        }
-    }while(true)
-
-        /* Проверка квартиры */
-        /* alert(`Квартира ${question} находиться в ${Math.ceil(question/10)} подъезде на ${Math.ceil(question/2)} этаже.`);   */ 
-        /* alert(`Квартира ${question} находиться в ${Math.ceil(question/10)} подъезде на ${Math.ceil((question - (Math.floor(question/10)*10))/2)} этаже.`);  */  
-        if(Number.isInteger(question/10)){
-            alert(`Квартира ${question} находиться в ${Math.ceil(question/10)} подъезде на 5 этаже.`);
-        }else{
-            alert(`Квартира ${question} находиться в ${Math.ceil(question/10)} подъезде на ${Math.ceil((question - (Math.floor(question/10)*10))/2)} этаже.`);  
-        }
-    }
-
-    </script>
+    </div>
     
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="script.js"></script>
 </html>
