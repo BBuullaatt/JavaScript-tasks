@@ -1,75 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
+</head>
+<body>
     <script>
-      /* Раздел основной программы */
-      let int = 5;
-      let attempts = 3;
-      alert(`Загадано число в диапазоне от 0 до 10, попробуйте отгадать его. У Вас осталось ${attempts} попытки.`);
-     
-      for(; attempts>0; attempts--){
-
-      if(getNumber(int)){
-        break;
-      }
-
-    attemptsCheck(attempts);
-    }
-
-      /* Функция проверки попыток и вызова функции проверки числа */
-      function attemptsCheck(attempts) {
-
-            if(attempts == 1) {
-
-              alert("К сожалению, у Вас закончились попытки. Начните игру с начала.");
-            } else {
-
-              alert( `У Вас осталось ${attempts - 1} попытки(а). Попробуйте еще раз.`);
-            }
+        let question = +prompt('Введите номер квартиры.',1);
+        /*  Первый подъезд */
+        if(question =='1'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 1 этаже.`);
         }
-      
-
-      /* Функция проверки числа */
-      function getNumber(int) {
-        let responce;
-        /* Проверка на корректность введеных данных */
-        do{
-            responce = +prompt("Введите число","1");
-
-        if (isNaN(responce)) {
-
-            alert(`Пожалуйста, введите числовое значение.`);
-
-        } else {
-          
-            if (responce < 0 || responce > 10) {
-            alert(`Пожалуйста, введите значение от 0 или 10.`);
-
-          } else {
-            break;
-          }
-
+        else if (question =='2'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 1 этаже.`);  
         }
-        }while(true)
-
-        /* Проверка числа */
-        if (int < responce) {
-          alert(`Вы не угадали. Ваше число больше загаданного.`);
-          return false;
-        } else if (int > responce) {
-          alert(`Вы не угадали. Ваше число меньше загаданного.`);
-          return false;
-        } else {
-          alert(`Поздравляем. Вы угадали, было загадано число ${int}`);
-          attempts = 0;
-          return true;
+        else if (question =='3'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 2 этаже.`);  
         }
-      }
+        else if (question =='4'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 2 этаже.`);  
+        }
+        else if (question =='5'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 3 этаже.`);  
+        }
+        else if (question =='6'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 3 этаже.`);  
+        }
+        else if (question =='7'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 4 этаже.`);  
+        }
+        else if (question =='8'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 4 этаже.`);  
+        }
+        else if (question =='9'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 5 этаже.`);  
+        }
+        else if (question =='10'){
+            alert(`Квартира ${question} находиться в 1 подъезде на 5 этаже.`);  
+        }
+        /*  Второй подъезд */
+        else if (question =='11'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 1 этаже.`);  
+        }
+        else if (question =='12'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 1 этаже.`);  
+        }
+        else if (question =='13'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 2 этаже.`);  
+        }
+        else if (question =='14'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 2 этаже.`);  
+        }
+        else if (question =='15'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 3 этаже.`);  
+        }
+        else if (question =='16'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 3 этаже.`);  
+        }
+        else if (question =='17'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 4 этаже.`);  
+        }
+        else if (question =='18'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 4 этаже.`);  
+        }
+        else if (question =='19'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 5 этаже.`);  
+        }
+        else if (question =='20'){
+            alert(`Квартира ${question} находиться в 2 подъезде на 5 этаже.`);  
+        }
+        /*  Третий подъезд */
+        else if (question =='21'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 1 этаже.`);  
+        }
+        else if (question =='22'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 1 этаже.`);  
+        }
+        else if (question =='23'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 2 этаже.`);  
+        }
+        else if (question =='24'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 2 этаже.`);  
+        }
+        else if (question =='25'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 3 этаже.`);  
+        }
+        else if (question =='26'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 3 этаже.`);  
+        }
+        else if (question =='27'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 4 этаже.`);  
+        }
+        else if (question =='28'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 4 этаже.`);  
+        }
+        else if (question =='29'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 5 этаже.`);  
+        }
+        else if (question =='30'){
+            alert(`Квартира ${question} находиться в 3 подъезде на 5 этаже.`);  
+        }
+        else{
+            alert('В доме только 30 квартир. Пожалуйста, введите корретный номер квартиры.');
+        }
     </script>
-  </body>
+    
+</body>
 </html>
