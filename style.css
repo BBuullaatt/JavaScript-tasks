@@ -1,4 +1,4 @@
-.list{
+.listAuto, .listMoto{
     display: flex;
     justify-content: space-around;
 }
@@ -9,4 +9,8 @@
 
 .item{
     border:1px solid
+}
+
+h1{
+    padding-left: 30px;
 }

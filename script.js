@@ -4,6 +4,7 @@ const app = new Vue({
 
     data:{
         goods:[],
+        goodsMoto:[],
         basket:[],
         counter:0,
         showBasket:false
@@ -22,7 +23,7 @@ const app = new Vue({
 
           this.goods = item;
 
-          await this.addMotoList();
+          
         },
 
         async addMotoList(){
@@ -34,15 +35,21 @@ const app = new Vue({
             
             if (item.length==0) return;
 
-            for(i of item){
-                this.goods.push(i);
-            }
+            this.goodsMoto = item;
             
           },
 
         addToBasket(e){
+            let item;
             const itemId = e.target.getAttribute('itemId');
-            const item = this.goods.find((i)=>i.title===itemId);
+            const arrGoods = e.target.getAttribute('arrGoods');
+
+            if(arrGoods==0){
+            item = this.goods.find((i)=>i.title===itemId);
+            }else{
+            item = this.goodsMoto.find((i)=>i.title===itemId); 
+            }
+            
             this.basket.push(item);
 
             this.counter=this.basket.length;
@@ -75,7 +82,8 @@ const app = new Vue({
     },
 
     async mounted(){
-        await this.addList()
+        await this.addList();
+        await this.addMotoList();
     }
 
 

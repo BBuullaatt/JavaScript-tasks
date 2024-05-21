@@ -9,12 +9,23 @@
 <body>
 
     <div id="app">
-        <div class="list">
+        <h1>Автомобили</h1>
+        <div class="listAuto">     
             <div class="item" v-for="i in goods">
                 <h1>{{i.title}}</h1>
                 <h2>{{i.color}}</h2>
                 <h2>{{i.price}}</h2>
-                <button v-on:click="addToBasket" :itemId="i.title">В корзину</button>
+                <button v-on:click="addToBasket" :itemId="i.title" :arrGoods=0>В корзину</button>
+            </div>
+        </div>
+
+        <h1>Мотоциклы</h1>
+        <div class="listMoto">     
+            <div class="item" v-for="i in goodsMoto">
+                <h1>{{i.title}}</h1>
+                <h2>{{i.color}}</h2>
+                <h2>{{i.price}}</h2>
+                <button v-on:click="addToBasket" :itemId="i.title" :arrGoods=1>В корзину</button>
             </div>
         </div> 
 
