@@ -17,15 +17,35 @@ const app = new Vue({
           const responce=await fetch(URL);
 
           const item = await responce.json()
+
+          if (item.length==0) return;
+
           this.goods = item;
+
+          await this.addMotoList();
         },
 
+        async addMotoList(){
+            const URL="https://api.npoint.io/3ea1f7d49492a8fd6392"
+  
+            const responce=await fetch(URL);
+  
+            const item = await responce.json()
+            
+            if (item.length==0) return;
+
+            for(i of item){
+                this.goods.push(i);
+            }
+            
+          },
 
         addToBasket(e){
-            this.counter+=1;
             const itemId = e.target.getAttribute('itemId');
             const item = this.goods.find((i)=>i.title===itemId);
             this.basket.push(item);
+
+            this.counter=this.basket.length;
 
             this.showBasket=false;
 
@@ -43,7 +63,7 @@ const app = new Vue({
         deleteItem(de){
             console.log(de)
             this.basket.splice(de,1);
-            this.counter-=1;
+            this.counter=this.basket.length;
            
         },
         cleanBasket(){
