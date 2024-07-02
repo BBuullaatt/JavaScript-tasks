@@ -1,22 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dino run</title>
-    <link rel="stylesheet" href="style.css">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
+      integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Color palette</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="visually-hidden">Color Palette Generator</h1>
+    </header>
+    <main>
+      <div class="col">
+        <h2 data-type="copy"></h2>
+        <button data-type="lock">
+          <i class="fa-solid fa-lock-open" data-type="lock"></i>
+        </button>
+      </div>
 
-</head>
-<body>
+      <div class="col">
+        <h2 data-type="copy"></h2>
+        <button data-type="lock">
+          <i class="fa-solid fa-lock-open" data-type="lock"></i>
+        </button>
+      </div>
 
-    <div id="counter"></div>
-    <div class="game">
-        
-        <div id="dino"></div>
-        <div id="cactus"></div>
+      <div class="col">
+        <h2 data-type="copy"></h2>
+        <button data-type="lock">
+          <i class="fa-solid fa-lock-open" data-type="lock"></i>
+        </button>
+      </div>
+
+      <div class="col">
+        <h2 data-type="copy"></h2>
+        <button data-type="lock">
+          <i class="fa-solid fa-lock-open" data-type="lock"></i>
+        </button>
+      </div>
+
+      <div class="col">
+        <h2 data-type="copy"></h2>
+        <button data-type="lock">
+          <i class="fa-solid fa-lock-open" data-type="lock"></i>
+        </button>
+      </div>
+    </main>
+
+    <div id="notes">
+      <div id="notes">
+        <div class="note-item" data-type="success" role="alert">
+          <div class="note-item-text"></div>
+          <button
+            class="note-item-btn"
+            role="button"
+            aria-label="Скрыть"
+          ></button>
+        </div>
+      </div>
     </div>
-    
-    <script src="script.js"></script>
-</body>
+
+    <script src="app.js"></script>
+  </body>
 </html>
