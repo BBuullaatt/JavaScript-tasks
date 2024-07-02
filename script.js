@@ -1,91 +1,32 @@
-const app = new Vue({
+const dino = document.getElementById("dino");
+const cactus = document.getElementById("cactus");
+const counter = document.getElementById("counter");
+let countNumber=0;
 
-    el:"#app",
+document.addEventListener("keydown", function(event){
+    jump();
+})
 
-    data:{
-        goods:[],
-        goodsMoto:[],
-        basket:[],
-        counter:0,
-        showBasket:false
-    },
-
-    methods:{
-
-        async addList(){
-          const URL="https://api.npoint.io/a821f52125d01929c394"
-
-          const responce=await fetch(URL);
-
-          const item = await responce.json()
-
-          if (item.length==0) return;
-
-          this.goods = item;
-
-          
-        },
-
-        async addMotoList(){
-            const URL="https://api.npoint.io/3ea1f7d49492a8fd6392"
-  
-            const responce=await fetch(URL);
-  
-            const item = await responce.json()
-            
-            if (item.length==0) return;
-
-            this.goodsMoto = item;
-            
-          },
-
-        addToBasket(e){
-            let item;
-            const itemId = e.target.getAttribute('itemId');
-            const arrGoods = e.target.getAttribute('arrGoods');
-
-            if(arrGoods==0){
-            item = this.goods.find((i)=>i.title===itemId);
-            }else{
-            item = this.goodsMoto.find((i)=>i.title===itemId); 
-            }
-            
-            this.basket.push(item);
-
-            this.counter=this.basket.length;
-
-            this.showBasket=false;
-
-        },
-
-        show(){
-            this.showBasket=true;
-        },
-
-        notshow(){
-            this.showBasket=false;
-
-        },
-
-        deleteItem(de){
-            console.log(de)
-            this.basket.splice(de,1);
-            this.counter=this.basket.length;
-           
-        },
-        cleanBasket(){
-            this.basket=[];
-            this.counter=0;
-        }
-
-
-    },
-
-    async mounted(){
-        await this.addList();
-        await this.addMotoList();
+function jump(){
+    if(dino.classList != "jump"){
+        dino.classList.add("jump");
     }
 
+    setTimeout(() => {
+        dino.classList.remove("jump");
+        
+    }, 500);
+}
 
+let isAlive = setInterval(() => {
+    let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
+    let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"));
 
-})
+    if(cactusLeft <50 && cactusLeft > 0 && dinoTop>= 140){
+        alert(`Game over! Your score ${countNumber}.`);
+        location.reload();
+    }else{
+        countNumber++;
+        counter.innerHTML=`Score: ${countNumber}`;
+    }
+},200);

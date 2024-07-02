@@ -3,56 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dino run</title>
     <link rel="stylesheet" href="style.css">
+    
+
 </head>
 <body>
 
-    <div id="app">
-        <h1>Автомобили</h1>
-        <div class="listAuto">     
-            <div class="item" v-for="i in goods">
-                <h1>{{i.title}}</h1>
-                <h2>{{i.color}}</h2>
-                <h2>{{i.price}}</h2>
-                <button v-on:click="addToBasket" :itemId="i.title" :arrGoods=0>В корзину</button>
-            </div>
-        </div>
-
-        <h1>Мотоциклы</h1>
-        <div class="listMoto">     
-            <div class="item" v-for="i in goodsMoto">
-                <h1>{{i.title}}</h1>
-                <h2>{{i.color}}</h2>
-                <h2>{{i.price}}</h2>
-                <button v-on:click="addToBasket" :itemId="i.title" :arrGoods=1>В корзину</button>
-            </div>
-        </div> 
-
+    <div id="counter"></div>
+    <div class="game">
         
-
-        <p class="basket-counter">Товаров в корзине:{{counter}}</p>
-
-        <button v-on:click="show">Корзина</button>
-        <button v-on:click="notshow">Закрыть корзину</button>
-        <button v-on:click="cleanBasket">Очистить корзину</button>
-
-        <div class="basket" v-if="showBasket">
-            <div class="item" v-for="(i,de) in basket">
-                <h1>{{i.title}}</h1>
-                <h2>{{i.color}}</h2>
-                <h2>{{i.price}}</h2>
-                <button v-on:click="deleteItem(de)">Удалить</button>
-            </div>
-        </div>  
-        
-        
-
-
-
+        <div id="dino"></div>
+        <div id="cactus"></div>
     </div>
     
+    <script src="script.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-<script src="script.js"></script>
 </html>
