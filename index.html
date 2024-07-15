@@ -1,83 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
-      integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <title>Color palette</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <title>ToDo приложение</title>
   </head>
   <body>
-    <header>
-      <h1 class="visually-hidden">Color Palette Generator</h1>
-    </header>
-    <main>
-      <div class="col">
-        <h2 data-type="copy"></h2>
-        <button data-type="lock">
-          <i class="fa-solid fa-lock-open" data-type="lock"></i>
-        </button>
-      </div>
+    <div class="container">
+      <div class="display-4 mb-2">ToDo приложение</div>
+      <div class="h4 mb-5">список задач на сегодня</div>
 
-      <div class="col">
-        <h2 data-type="copy"></h2>
-        <button data-type="lock">
-          <i class="fa-solid fa-lock-open" data-type="lock"></i>
-        </button>
+      <!-- List of tasks -->
+      <div class="card mb-4">
+        <ul id="tasksList" class="list-group list-group-flush"></ul>
       </div>
+      <!-- //List of tasks -->
 
-      <div class="col">
-        <h2 data-type="copy"></h2>
-        <button data-type="lock">
-          <i class="fa-solid fa-lock-open" data-type="lock"></i>
-        </button>
-      </div>
-
-      <div class="col">
-        <h2 data-type="copy"></h2>
-        <button data-type="lock">
-          <i class="fa-solid fa-lock-open" data-type="lock"></i>
-        </button>
-      </div>
-
-      <div class="col">
-        <h2 data-type="copy"></h2>
-        <button data-type="lock">
-          <i class="fa-solid fa-lock-open" data-type="lock"></i>
-        </button>
-      </div>
-    </main>
-
-    <div id="notes">
-      <div id="notes">
-        <div class="note-item" data-type="success" role="alert">
-          <div class="note-item-text"></div>
-          <button
-            class="note-item-btn"
-            role="button"
-            aria-label="Скрыть"
-          ></button>
+      <!-- Form -->
+      <div class="card bg-light">
+        <div class="card-header">Добавить новую задачу</div>
+        <div class="card-body">
+          <form id="form">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="taskInput"
+                placeholder="Текст задачи"
+                required
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >Что делаем, сколько времени тратим, какой результат
+                получаем.</small
+              >
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg active">
+              Добавить
+            </button>
+          </form>
         </div>
       </div>
+      <!-- //Form  -->
     </div>
 
-    <script src="app.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
